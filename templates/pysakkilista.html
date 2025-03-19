@@ -1,0 +1,16 @@
+<html>
+<head>
+	<link rel=stylesheet href="{{url_for('static',filename='tyylit.css')}}">
+</head>
+<body>
+	<h1>Pysäkit, joiden nimessä on {{nimi_tai_osa}}</h1>
+	<ul>
+	{% for pysakki in pysakit %}
+	<li><a href="{{url_for('vastaus', pysakki=pysakki)}}">
+	  {{pysakit[pysakki]['label']}}
+	  ({{", ".join(pysakit[pysakki]['addendum']['GTFS']['modes'])}})
+	</a></li>
+	{% endfor %}
+	</ul>
+</body>
+</html>

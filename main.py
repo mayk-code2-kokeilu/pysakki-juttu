@@ -45,13 +45,15 @@ def aikataulusivu(pysakkitiedot):
             pysahdykset=pysakkitiedot['stoptimes'],
             pysakki=pysakkitiedot['name'])
 
-def pysakkihakusivu(pysakki):
-    return "Nothing here yet"
+def pysakkihakusivu(haku, pysakit):
+    return render_template('pysakkilista.html',
+            nimi_tai_osa=haku,
+            pysakit=pysakit)
 
 @app.route("/vastaus")
 def vastaus():
     pysakki = request.args.get('pysakki', 'HSL:1282103')
     pysakkitiedot = hae_pysakkitiedot(pysakki)['data']['stop']
     if pysakkitiedot: return aikataulusivu(pysakkitiedot)
-    else: return pysakkihakusivu(pysakki)
+    else: return pysakkihakusivu(pysakki, hae_pysakit(pysakki))
 
