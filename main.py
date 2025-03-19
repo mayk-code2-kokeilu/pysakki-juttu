@@ -37,10 +37,10 @@ def hae_pysakkitiedot(pysakki):
 
 @app.route("/")
 def root():
-    return render_template('lomake.html')
+    return render_template('haku.html')
 
 def aikataulusivu(pysakkitiedot):
-    return render_template('vastaus.html',
+    return render_template('aikataulu.html',
             url=pysakkitiedot['url'],
             pysahdykset=pysakkitiedot['stoptimes'],
             pysakki=pysakkitiedot['name'])
@@ -50,7 +50,7 @@ def pysakkihakusivu(haku, pysakit):
             nimi_tai_osa=haku,
             pysakit=pysakit)
 
-@app.route("/vastaus")
+@app.route("/hae")
 def vastaus():
     pysakki = request.args.get('pysakki', 'HSL:1282103')
     pysakkitiedot = hae_pysakkitiedot(pysakki)['data']['stop']

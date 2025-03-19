@@ -5,7 +5,7 @@
 <body>
 	<img src="{{url_for('static',filename='kouvola.png')}}">
 	<h1>Hae pysäkkiaikataulut</h1>
-	<form method=GET action=vastaus>
+	<form method=GET action="{{url_for('vastaus')}}">
 		<p>Pysäkin nimi:
 		<input type=text name="pysakki">
 		<input type=submit value="Hae aikataulut">
