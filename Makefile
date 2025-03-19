@@ -9,3 +9,6 @@ deps: myenv
 run: deps myenv
 	./myenv/bin/flask --app main run --debug
 
+ipy: deps myenv
+	./myenv/bin/ipython
+
