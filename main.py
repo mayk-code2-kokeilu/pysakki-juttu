@@ -8,5 +8,6 @@ def root():
 
 @app.route("/vastaus")
 def vastaus():
-    return render_template('vastaus.html', nimi=request.args['nimi'])
+    return render_template('vastaus.html',
+            pysakki=request.args.get('pysakki', 'Maunula'))
 

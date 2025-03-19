@@ -3,10 +3,13 @@
 	<link rel=stylesheet href="{{url_for('static',filename='tyylit.css')}}">
 </head>
 <body>
-	<h1>Tähän nimi kiitos!</h1>
+	<img src="{{url_for('static',filename='kouvola.png')}}">
+	<h1>Hae pysäkkiaikataulut</h1>
 	<form method=GET action=vastaus>
-		<input type=text name="nimi">
-		<input type=submit value="Paina minua">
+		<p>Pysäkin nimi:
+		<input type=text name="pysakki">
+		<input type=submit value="Hae aikataulut">
+		</p>
 	</form>
 </body>
 </html>
