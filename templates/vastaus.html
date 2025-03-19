@@ -4,12 +4,15 @@
 </head>
 <body>
 	<h1>Aikataulut pysäkille <a href="{{url}}">{{pysakki}}</a></h1>
-	<p>
+	<table>
+	<tr><th>kellonaika</th><th>linja</th><th>mihin</th></tr>
 	{% for pysahdys in pysahdykset %}
-	Aika: {{ pysahdys['realtimeDeparture'] }}
-	Linja: {{ pysahdys['trip']['pattern']['route']['shortName'] }}
-	Mihin: {{ pysahdys['headsign'] }} <br>
+	<tr><td>{{ "%02d:%02d" % (pysahdys['realtimeDeparture'] // 3600,
+			pysahdys['realtimeDeparture'] // 60 % 60) }}</td>
+	<td>{{ pysahdys['trip']['pattern']['route']['mode'] }}
+		{{ pysahdys['trip']['pattern']['route']['shortName'] }}</td>
+	<td>{{ pysahdys['headsign'] }}</td></tr>
 	{% endfor %}
-	</p>
+	</table>
 </body>
 </html>
