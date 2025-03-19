@@ -6,6 +6,7 @@ query StopPageContentContainerQuery(
 ) {
   stop(id: $stopId) {
     id
+    name
     url
     stoptimes: stoptimesWithoutPatterns(
       startTime: $startTime,

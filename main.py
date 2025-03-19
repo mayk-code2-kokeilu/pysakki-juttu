@@ -22,6 +22,10 @@ def root():
 
 @app.route("/vastaus")
 def vastaus():
+    pysakki = request.args.get('pysakki', 'HSL:1282103')
+    pysakkitiedot = hae_pysakkitiedot(pysakki)['data']['stop']
     return render_template('vastaus.html',
-            pysakki=request.args.get('pysakki', 'Maunula'))
+            url=pysakkitiedot['url'],
+            pysahdykset=pysakkitiedot['stoptimes'],
+            pysakki=pysakkitiedot['name'])
 

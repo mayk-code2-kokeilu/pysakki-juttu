@@ -3,7 +3,13 @@
 	<link rel=stylesheet href="{{url_for('static',filename='tyylit.css')}}">
 </head>
 <body>
-	<h1>Aikataulut pysäkille {{pysakki}}</h1>
-	<p>13:00</p>
+	<h1>Aikataulut pysäkille <a href="{{url}}">{{pysakki}}</a></h1>
+	<p>
+	{% for pysahdys in pysahdykset %}
+	Aika: {{ pysahdys['realtimeDeparture'] }}
+	Linja: {{ pysahdys['trip']['pattern']['route']['shortName'] }}
+	Mihin: {{ pysahdys['headsign'] }} <br>
+	{% endfor %}
+	</p>
 </body>
 </html>
