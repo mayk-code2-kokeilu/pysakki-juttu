@@ -1,0 +1,34 @@
+query StopPageContentContainerQuery(
+  $stopId: String!
+  $startTime: Long!
+  $timeRange: Int!
+  $numberOfDepartures: Int!
+) {
+  stop(id: $stopId) {
+    id
+    url
+    stoptimes: stoptimesWithoutPatterns(
+      startTime: $startTime,
+      timeRange: $timeRange,
+      numberOfDepartures: $numberOfDepartures,
+      omitCanceled: true
+    ) {
+      realtimeDeparture
+      headsign
+      stop {
+        code
+      }
+      trip {
+        tripHeadsign
+	pattern {
+	  route {
+	    shortName
+	    longName
+	    mode
+	  }
+	}
+      }
+    }
+  }
+}
+
