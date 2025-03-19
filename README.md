@@ -1,2 +1,3 @@
 # hieno-lomake
-Esimerkki lomakkeen toteuttavasta Flask-palvelusta
+
+Esimerkki webbipalvelusta, joka näyttää tilattomasti HSL-aikatauluja.
