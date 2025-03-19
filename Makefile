@@ -7,5 +7,5 @@ deps: myenv
 	touch $@
 
 run: deps myenv
-	./myenv/bin/flask --app main run
+	./myenv/bin/flask --app main run --debug
 
