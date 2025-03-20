@@ -57,3 +57,5 @@ def vastaus():
     if pysakkitiedot: return aikataulusivu(pysakkitiedot)
     else: return pysakkihakusivu(pysakki, hae_pysakit(pysakki))
 
+#if __name__ == '__main__':
+#        app.run(debug=True)
